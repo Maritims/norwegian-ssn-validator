@@ -1,0 +1,33 @@
+{
+    "compilerOptions": {
+        // type checking
+        "strict": true,
+        "noImplicitReturns": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        
+        // modules
+        "outDir": "dist",
+        "rootDir": "src",
+        "target": "es5",
+        "types": [
+            "jest",
+            "node"
+        ],
+
+        // emit
+        "declaration": true,
+        "declarationMap": true,
+        "sourceMap": true,
+
+        // projects
+        "composite": true
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "dist",
+        "node_modules"
+    ]
+}

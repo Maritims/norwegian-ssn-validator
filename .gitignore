@@ -1,0 +1,15 @@
+# JavaScript
+**/*.js
+!jest.config.js
+
+# VS Code
+.vscode
+
+# Build directory
+dist/
+
+# Dependency directories
+node_modules/
+
+# TypeScript cache
+*.tsbuildinfo
