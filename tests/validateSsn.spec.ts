@@ -1,7 +1,6 @@
-import { InvalidBirthDateError } from '../src/errors/InvalidBirthDateError'
-import { InvalidIndividualDigitsError } from '../src/errors/InvalidIndividualDigitsError'
-import { InvalidSsnError } from '../src/errors/InvalidSsnError'
 import { validateSsn } from '../src/validateSsn'
+import { ValidationErrorCode } from '../src/ValidationErrorCode'
+import './toBeExpectedBoolean'
 
 describe('it should succeed', () => {
     test('when the ssn is valid', () => {
@@ -12,7 +11,7 @@ describe('it should succeed', () => {
         const result = validateSsn(ssn)
 
         // assert
-        expect(result).toBe(true)
+        expect(result.isSuccess()).toBe(true)
     })
 })
 
@@ -22,8 +21,11 @@ describe('it should fail', () => {
         const ssn = '123'
 
         // act
+        const result = validateSsn(ssn)
+
         // assert
-        expect(() => validateSsn(ssn)).toThrow(InvalidSsnError)
+        expect(result.isSuccess()).toBe(false)
+        expect(result.errorCode).toBe(ValidationErrorCode.InvalidSsnFormat)
     })
 
     test('when the ssn is not made up of precisely 11 digits', () => {
@@ -31,8 +33,11 @@ describe('it should fail', () => {
         const ssn = '010151abcde'
 
         // act
+        const result = validateSsn(ssn)
+
         // assert
-        expect(() => validateSsn(ssn)).toThrow(InvalidSsnError)
+        expect(result.isSuccess()).toBe(false)
+        expect(result.errorCode).toBe(ValidationErrorCode.InvalidSsnFormat)
     })
 
     test('when the date of birth is invalid', () => {
@@ -40,8 +45,11 @@ describe('it should fail', () => {
         const ssn = '01135111111'
 
         // act
+        const result = validateSsn(ssn)
+
         // assert
-        expect(() => validateSsn(ssn)).toThrow(InvalidBirthDateError)
+        expect(result.isSuccess()).toBe(false)
+        expect(result.errorCode).toBe(ValidationErrorCode.InvalidBirthDate)
     })
 
     test('when the date of birth and individual digits do not match', () => {
@@ -49,7 +57,10 @@ describe('it should fail', () => {
         const ssn = '01015150011'
 
         // act
+        const result = validateSsn(ssn)
+
         //assert
-        expect(() => validateSsn(ssn)).toThrow(InvalidIndividualDigitsError)
+        expect(result.isSuccess()).toBe(false)
+        expect(result.errorCode).toBe(ValidationErrorCode.InvalidIndividualDigits)
     })
 })

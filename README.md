@@ -15,13 +15,13 @@ yarn add norwegian-ssn-validator
 ```js
 import { validateSsn } from 'norwegian-ssn-validator'
 
-let ssn = '01015111111'
-let isValid = false
+const ssn = '01015111111'
+const validationResult = validateSsn(ssn)
 
-try {
-    isValid = validateSsn(ssn)
-} catch(error) {
-    console.error(error)
+if(validationResult.isSuccess()) {
+    console.log('SSN is valid')
+} else {
+    console.log(`SSN is invalid: ${validationResult.errorCode}`)
 }
 ```
 

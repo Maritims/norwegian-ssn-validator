@@ -1,4 +1,3 @@
-import { InvalidIndividualDigitsError } from '../src/errors/InvalidIndividualDigitsError'
 import { validateIndividualDigits } from '../src/validateIndividualDigits'
 import './toBeExpectedBoolean'
 
@@ -27,12 +26,10 @@ const ITERATIONS = Number(process.env.TEST_VALIDATE_INDIVIDUAL_DIGITS_ITERATIONS
         const dateofBirth = getRandomBirthDate(minYear, maxYear, IS_VERBOSE)
 
         // act
+        const result = validateIndividualDigits(individualDigits, dateofBirth)
+
         // assert
-        if(shouldSucceed) {
-            expect(validateIndividualDigits(individualDigits, dateofBirth)).toBeExpectedBoolean(shouldSucceed, `[individualDigits:${individualDigits}, dateOfBirth:${dateofBirth.toISOString()}, expected:${shouldSucceed}]`)
-        } else {
-            expect(() => validateIndividualDigits(individualDigits, dateofBirth)).toThrow(InvalidIndividualDigitsError)
-        }
+        expect(result).toBeExpectedBoolean(shouldSucceed, `[individualDigits:${individualDigits}, dateOfBirth:${dateofBirth.toISOString()}, expected:${shouldSucceed}]`)
      }
  }
 

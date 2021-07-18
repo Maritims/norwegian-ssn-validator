@@ -1,4 +1,3 @@
-import { InvalidBirthDateError } from '../src/errors/InvalidBirthDateError'
 import { getDateOfBirthFromSsn } from '../src/getDateOfBirthFromSsn'
 
 describe('it should suceed', () => {
@@ -10,7 +9,6 @@ describe('it should suceed', () => {
         const dateOfBirth = getDateOfBirthFromSsn(ssn)
 
         // assert
-        expect(dateOfBirth instanceof Date).toBe(true)
         expect(isNaN(dateOfBirth.getTime())).toBe(false)
     })
 })
@@ -21,7 +19,9 @@ describe('it should fail', () => {
         const ssn = '01135111111'
 
         // act
+        const result = getDateOfBirthFromSsn(ssn)
+
         // assert
-        expect(() => getDateOfBirthFromSsn(ssn)).toThrow(InvalidBirthDateError)
+        expect(isNaN(result.getTime())).toBe(true)
     })
 })
