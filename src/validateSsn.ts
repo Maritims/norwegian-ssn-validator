@@ -1,4 +1,4 @@
-import { getDateOfBirthFromSsn, validateDateOfBirth } from './getDateOfBirthFromSsn'
+import { getDateOfBirthFromSsn, validateDateOfBirth } from './validateDateOfBirth'
 import { validateControlDigits } from './validateControlDigits'
 import { validateIndividualDigits } from './validateIndividualDigits'
 import { ValidationErrorCode } from './ValidationErrorCode'

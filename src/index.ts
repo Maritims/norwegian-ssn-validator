@@ -1,5 +1,5 @@
 export * from './ValidationErrorCode'
 export * from './ValidationResult'
-export * from './getDateOfBirthFromSsn'
+export * from './validateDateOfBirth'
 export * from './validateIndividualDigits'
 export * from './validateSsn'

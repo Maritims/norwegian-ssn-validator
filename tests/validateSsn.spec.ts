@@ -13,6 +13,28 @@ describe('it should succeed', () => {
         // assert
         expect(result.isSuccess()).toBe(true)
     })
+
+    test('when the ssn is a D-number', () => {
+        // arrange
+        const ssn = '41015111184'
+
+        // act
+        const result = validateSsn(ssn)
+
+        // assert
+        expect(result.isSuccess()).toBe(true)
+    })
+
+    test('when the ssn is an H-number', () => {
+        // arrange
+        const ssn = '01415111173'
+
+        // act
+        const result = validateSsn(ssn)
+
+        // assert
+        expect(result.isSuccess()).toBe(true)
+    })
 })
 
 describe('it should fail', () => {
