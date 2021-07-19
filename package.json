@@ -1,8 +1,11 @@
 {
     "name": "norwegian-ssn-validator",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "description": "Validates a Norwegian social security number. Does not support H-numbers, D-numbers or FH-numbers.",
     "main": "dist/index.js",
+    "files": [
+        "dist"
+    ],
     "types": "dist/index.d.ts",
     "repository": {
         "url": "https://github.com/maritims/norwegian-ssn-validator",
