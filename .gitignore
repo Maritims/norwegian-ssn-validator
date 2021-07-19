@@ -1,8 +1,9 @@
 # VS Code
 .vscode
 
-# Build directory
+# Build directory and files
 dist/
+*.tgz
 
 # Dependency directories
 node_modules/
