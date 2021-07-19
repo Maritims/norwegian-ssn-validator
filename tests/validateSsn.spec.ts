@@ -1,11 +1,11 @@
 import { validateSsn } from '../src/validateSsn'
 import { ValidationErrorCode } from '../src/ValidationErrorCode'
-import './toBeExpectedBoolean'
+import './toBeWithErrorMessage'
 
 describe('it should succeed', () => {
     test('when the ssn is valid', () => {
         // arrange
-        const ssn = '01015111111'
+        const ssn = '01015111190'
 
         // act
         const result = validateSsn(ssn)

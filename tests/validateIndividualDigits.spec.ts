@@ -1,5 +1,5 @@
 import { validateIndividualDigits } from '../src/validateIndividualDigits'
-import './toBeExpectedBoolean'
+import './toBeWithErrorMessage'
 
 const IS_VERBOSE = Boolean(process.env.TEST_VALIDATE_INDIVIDUAL_DIGITS_VERBOSE || false)
 const ITERATIONS = Number(process.env.TEST_VALIDATE_INDIVIDUAL_DIGITS_ITERATIONS || 1000)
@@ -29,7 +29,7 @@ const ITERATIONS = Number(process.env.TEST_VALIDATE_INDIVIDUAL_DIGITS_ITERATIONS
         const result = validateIndividualDigits(individualDigits, dateofBirth)
 
         // assert
-        expect(result).toBeExpectedBoolean(shouldSucceed, `[individualDigits:${individualDigits}, dateOfBirth:${dateofBirth.toISOString()}, expected:${shouldSucceed}]`)
+        expect(result).toBeWithErrorMessage(shouldSucceed, `[individualDigits:${individualDigits}, dateOfBirth:${dateofBirth.toISOString()}, expected:${shouldSucceed}]`)
      }
  }
 

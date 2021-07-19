@@ -1,6 +1,6 @@
 import { getDateOfBirthFromSsn } from '../src/getDateOfBirthFromSsn'
 
-describe('it should suceed', () => {
+describe('it should succeed', () => {
     test('when the date of birth is valid', () => {
         // arrange
         const ssn = '01015111111'

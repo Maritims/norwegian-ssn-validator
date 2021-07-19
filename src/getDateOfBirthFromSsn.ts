@@ -6,3 +6,5 @@ export const getDateOfBirthFromSsn = (value: string): Date => {
 
     return new Date(`${yearOfBirth}-${monthOfBirth}-${dayOfBirth}T00:00:00.000Z`)
 }
+
+export const validateDateOfBirth = (dateOfBirth: Date): boolean => dateOfBirth instanceof Date && !isNaN(dateOfBirth.getTime())
